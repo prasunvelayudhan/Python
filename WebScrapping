@@ -1,0 +1,21 @@
+
+
+from BeautifulSoup import BeautifulSoup
+
+
+
+from urllib2 import urlopen
+
+
+base_url="http://oscar.go.com/nominees"
+
+
+html = urlopen(base_url).read()
+
+
+soup=BeautifulSoup(html)
+
+
+
+
+linkall=soup.find_all("a")
