@@ -1,10 +1,12 @@
 
 
-from BeautifulSoup import BeautifulSoup
 
+from bs4 import BeautifulSoup
 
 
 from urllib2 import urlopen
+
+
 
 
 base_url="http://oscar.go.com/nominees"
@@ -12,10 +14,30 @@ base_url="http://oscar.go.com/nominees"
 
 html = urlopen(base_url).read()
 
-
 soup=BeautifulSoup(html)
 
 
+divs=soup.find_all("div",{"nomCatTitleWrapper"})
 
 
-linkall=soup.find_all("a")
+len(divs)
+
+
+
+
+Cat=list()
+
+
+for tag in divs:
+        
+	h2=tag.find("h2")
+	Cat.append(h2.text)
+
+	
+
+print Cat
+
+
+
+
+
